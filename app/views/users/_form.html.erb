@@ -1,3 +1,4 @@
+<center class="col-md-4 mx-auto">
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -11,17 +12,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
+  <div class="field mt-3">
+    <%= form.text_field :username , placeholder: 'Enter your user name...' , class: "form-control"%>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="field mt-3">
+    <%= form.text_field :email , placeholder: 'Enter Your Email address....' , class: "form-control"%>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</center>

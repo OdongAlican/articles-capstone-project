@@ -1,11 +1,13 @@
+<center class = "col-md-4 mx-auto mt-4">
 <h1>Log in</h1>
 <%= form_for :session, url: login_path do |f| %>
-    <p>
-    <%= f.label :username %><br />
-   <%= f.text_field :username, placeholder: 'Your user name here' %>
-    </p>
-
-  <%= f.submit "Log in"  %>
+    <div>
+   <%= f.text_field :username, placeholder: 'Your user name here' , class: "form-control" %>
+    </div>
+  <div class="mt-2">
+  <%= f.submit "Log in" , class: "btn btn-primary form-control" %>
+  </div>
  
 <% end %></br>
-<%= link_to "Sign up", new_user_path %>
+<%= link_to "Sign up", new_user_path , class: "form-control" %>
+</center>
