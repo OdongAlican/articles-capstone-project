@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   root to: "sessions#new"
   resources :users
   get 'login', to: 'sessions#new'

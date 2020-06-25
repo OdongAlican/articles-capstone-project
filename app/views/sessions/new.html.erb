@@ -2,7 +2,7 @@
 <h1>Log in</h1>
 <%= form_for :session, url: login_path do |f| %>
     <div>
-   <%= f.text_field :username, placeholder: 'Your user name here' , class: "form-control" %>
+   <%= f.text_field :name, placeholder: 'Your user name here' , class: "form-control" %>
     </div>
   <div class="mt-2">
   <%= f.submit "Log in" , class: "btn btn-primary form-control" %>
