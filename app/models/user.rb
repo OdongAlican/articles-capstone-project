@@ -4,4 +4,5 @@ class User < ApplicationRecord
     validates :email, presence: true, length: { maximum: 255 },
                       format: { with: VALID_EMAIL_REGEX },
                       uniqueness: true
+    has_many :created_articles, foreign_key: 'author_id', class_name: 'Article'
 end
