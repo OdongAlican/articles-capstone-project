@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+ .background-image {
+     background-repeat: no-repeat;
+ }
+
+ .title {
+     bottom: 0;
+     left: 0;
+ }
