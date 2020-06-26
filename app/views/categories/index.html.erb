@@ -6,7 +6,7 @@
 <% @categories.each do |category| %>
   <div class="col-md-4">
     <%= link_to category_path(category) do %>
-      <div class="card background-image col-md-12 position-relative d-flex" style="background-image: url('<%= rails_blob_url(category.articles.first.image ) if category.articles.length > 0 %>'); height: 250px; background-position: center;">
+      <div class="card background-image col-md-12 position-relative d-flex" style="background-image: url('<%= rails_blob_url(category.articles.last.image ) if category.articles.length > 0 %>'); height: 250px; background-position: center;">
         
         <div class="position-absolute h-25 text-white title">
           <p>
