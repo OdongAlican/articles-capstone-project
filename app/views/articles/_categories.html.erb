@@ -1,0 +1,24 @@
+<%= form_with(model: @article, local: true) do |form| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being Updated:</h2>
+
+      <ul>
+        <% @article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+    <div>
+        <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text } %> 
+        <% end %>
+    </div>
+         
+    <div class="actions">
+      <%= form.submit 'Update Categories' %>
+    </div>
+    
+  <% end %>

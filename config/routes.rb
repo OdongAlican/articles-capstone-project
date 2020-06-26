@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :articles
   root to: "sessions#new"
   resources :users
+  resources :categories
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
