@@ -1,4 +1,3 @@
-<h5><b> Select Attendees </b></h5>
 <%= form_with(model: @article, local: true) do |form| %>
   <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -19,7 +18,7 @@
     </div>
          
     <div class="actions">
-      <%= form.submit 'Select Categories' %>
+      <%= form.submit 'Update Categories' %>
     </div>
     
   <% end %>

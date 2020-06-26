@@ -4,11 +4,22 @@
   <strong>Category Name:</strong>
   <%= @category.name %>
 </p>
-
-<p>
-  <strong>Category Priority:</strong>
-  <%= @category.priority %>
-</p>
+<div class="d-flex col-md-12 row">
+<% @category.articles.each do |article| %>
+  <div class="col-md-4">
+    <%= link_to article_path(article) do %>
+      <div class="card background-image col-md-12 position-relative d-flex" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 250px; background-position: center;">
+        
+        <div class="position-absolute h-25 text-white title">
+          <p>
+            <%= article.title %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+</div>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
