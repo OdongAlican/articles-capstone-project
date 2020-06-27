@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
       if user
         session[:user_id] = user.id
         flash[:success] = 'Invalid name/password combination'
-        redirect_to user_path(user)
+        redirect_to categories_path
+        # redirect_to user_path(user)
       else
         flash.now[:danger] = 'Invalid name/password combination'
         render 'new'

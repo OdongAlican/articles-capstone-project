@@ -31,23 +31,24 @@
     <% end %>
     <div class="collapse navbar-collapse d-flex justify-content-end" >
       <ul class="navbar-nav">
-        <li class="nav-item">
-            <a>
-              <%= link_to "Sign Up", new_user_path,  class: "nav-link text-light"%> 
-            </a>
+        <% if !logged_in? %>
+          <li class="nav-item">
+              <a>
+                <%= link_to "Sign Up", new_user_path,  class: "nav-link text-light"%> 
+              </a>
+            </li>
+          <li class="nav-item">
+              <a>
+                <%= link_to "Sign In", login_path, class: "nav-link text-light"%> 
+              </a>
           </li>
-        <li class="nav-item">
-            <a>
-              <%= link_to "Sign In", login_path, class: "nav-link text-light"%> 
-            </a>
-        </li>
-        <% if logged_in? %>
+        <% else %>
           <li class="nav-item">
             <a>
               <%= link_to "Log Out", logout_path, method: :delete, class: "nav-link text-light"%> 
             </a>
           </li>   
-          <% end %>    
+        <% end %>    
       </ul>
     </div>
   </nav>
