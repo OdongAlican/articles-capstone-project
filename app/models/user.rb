@@ -5,4 +5,6 @@ class User < ApplicationRecord
                       format: { with: VALID_EMAIL_REGEX },
                       uniqueness: true
     has_many :created_articles, foreign_key: 'author_id', class_name: 'Article'
+    has_many :votes, dependent: :destroy
+
 end
