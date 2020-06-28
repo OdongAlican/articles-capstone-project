@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
-
+<% if Article.any? %>
 </div>
-  <div class="card background-image col-md-8 position-relative d-flex" style="background-image: url('<%= rails_blob_url(Article.order("votes_count DESC").first.image )%>'); height: 350px; background-position: center;">
+  <div class="card background-image col-md-8 position-relative d-flex" style="background-image: url('<%= rails_blob_url(Article.order("votes_count DESC").first.image ) if Article.any?%>'); height: 350px; background-position: center;">
     <h3> 
-        <%= Article.order("votes_count DESC").first.title %>
+        <%= Article.order("votes_count DESC").first.title if Article.any?%>
     </h3>
     <h3> 
-        <%= Article.order("votes_count DESC").first.text %>
+        <%= Article.order("votes_count DESC").first.text if Article.any?%>
     </h3>
   </div>
 <div>
-
+<% end %>
+<% if Category.any? %>
 <div class= "d-flex col-md-12 mt-2 row">
 <% @categories.order("priority ASC").each do |category| %>
-  <div class="col-md-3">
+  <div class="col-md-3 bg-primary">
     <%= link_to category_path(category) do %>
       <div class="card background-image col-md-12 position-relative d-flex" style="background-image: url('<%= rails_blob_url(category.articles.last.image ) if category.articles.length > 0 %>'); height: 250px; background-position: center;">
         
@@ -29,4 +30,8 @@
 <% end %>
 </div>
 
-<%= link_to 'New Category', new_category_path %>
+<% else %>
+    <p> Welcome <%= current_user.name %> </p>
+    <p> Please Go ahead and create Articles and Categories </p> 
+    <%= link_to 'New Category', new_category_path %>
+<% end %>
