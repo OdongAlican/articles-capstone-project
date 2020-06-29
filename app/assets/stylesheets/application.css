@@ -20,15 +20,24 @@
 
  .title {
      bottom: 0;
-     left: 0;
-     background-color: #777;
+     color: white;
+     height: 30px;
+ }
+
+ .title-name {
+     border-bottom: 2px solid yellow;
+ }
+
+ .inner-title {
+     color: #FBC46A;
+     border-bottom: 2px solid #FBC46A;
  }
 
  .general {
      border: 10px solid #4E443F;
      height: 669px;
      z-index: 1;
-     position: fixed;
+     position: absolute;
      width: 100%;
      scroll-behavior: auto;
  }
@@ -43,12 +52,20 @@ nav {
     height: 75px;
 }
 
-.dummy-red {
+.inner-section {
+    scroll-behavior: auto;
+}
+
+.dummy-red, .dummy-pink {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: #F46226;
     margin-top: 20px;
+}
+
+.dummy-pink {
+    margin-top: 17px;
 }
 
 .middle-division a,
@@ -78,3 +95,48 @@ nav {
     cursor: pointer;
 }
 
+.main-article {
+    height: 360px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+}
+
+.category-file, .central-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.desc {
+    bottom: 0;
+    height: 60px;
+}
+
+.main-heading {
+    color: #CD551F;
+}
+
+.category-main {
+    width: 100%;
+}
+
+.inner-category {
+    display: flex;
+}
+
+.background-image {
+    flex: 1;
+}
+
+.primary-part {
+    flex: 1;
+}
+
+footer {
+    background-color: #4E443F;
+    height: 40px;
+    bottom: 0;
+    position: fixed;
+}

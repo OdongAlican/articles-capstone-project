@@ -14,6 +14,7 @@
 
   <body>
     <div class="general">
+    <div class="inner-section">
       <nav class="navbar navbar-expand-lg d-flex flex-row">
         <div class ="float-left d-flex col-md-3">
           <h2 class="d-flex"> soFTeARth </h2>
@@ -67,9 +68,16 @@
       <div class="lower-nav w-100">
         <div class="inner-lower-nav bg-danger w-25 h-100"></div>
       </div> 
-      <div class="px-4 pt-4">
+      <div class= "contain">
         <%= yield %>
       </div> 
+     </div> 
+     <footer class="d-flex w-100">
+        <div class="d-flex">
+          <h3 class="d-flex"> soFTeARth </h3>
+          <div class="dummy-pink"></div>
+        </div> 
+     </footer>
     </div>
   </body>
 </html>

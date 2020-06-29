@@ -1,25 +1,45 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Category Name:</strong>
-  <%= @category.name %>
-</p>
-<div class="d-flex col-md-12 row">
-<% @category.articles.order("created_at DESC").each do |article| %>
-  <div class="col-md-4">
-    <%= link_to article_path(article) do %>
-      <div class="card background-image col-md-12 position-relative d-flex" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 250px; background-position: center;">
-        
-        <div class="position-absolute h-25 text-white title">
-          <p>
-            <%= article.title %>
-          </p>
+  <div class="col-md-12 d-flex row pr-0 pt-0">
+    <% @category.articles.order("created_at DESC").each do |article| %>
+      <% if (article.id) <= 2 || ((article.id) >= 5 && (article.id) <= 6)%>
+      <div class="d-flex col-md-6 px-0 pt-0">
+        <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 260px;">
+        </div>
+        <div class="col-md-6 bg-primary">
+            <p>
+              <%= @category.name %>
+            </p>
+            <p>
+              <%= article.title %>
+            </p>
+            <p>
+              <%= article.id %>
+            </p>
+            <p>
+              <%= link_to "Read More", article_path(article)%>
+            </p>
         </div>
       </div>
+      <% elsif (article.id) >= 7 || ((article.id) >= 3 && (article.id) <= 4) %>
+      <div class="d-flex col-md-6 px-0 pt-0">
+        <div class="col-md-6 bg-primary">
+            <p>
+              <%= @category.name %>
+            </p>
+            <p>
+              <%= article.title %>
+            </p>
+            <p>
+              <%= article.id %>
+            </p>
+            <p>
+              <%= link_to "Read More", article_path(article)%>
+            </p>
+        </div>
+        <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 260px;">
+        </div>
+      </div>
+      <% end %>
     <% end %>
   </div>
-<% end %>
-</div>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+  
