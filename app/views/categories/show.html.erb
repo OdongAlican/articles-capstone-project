@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
+  <% if @category.articles.length > 0 %>
   <div class="col-md-12 d-flex row pr-0 pt-0">
     <% @category.articles.order("created_at DESC").each do |article| %>
       <% if (article.id) <= 2 || ((article.id) >= 5 && (article.id) <= 6)%>
       <div class="d-flex col-md-6 px-0 pt-0">
-        <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 260px;">
-        </div>
-        <div class="col-md-6 bg-primary">
+        <div class="col-md-6 bg-success">
             <p>
               <%= @category.name %>
             </p>
@@ -13,15 +11,16 @@
               <%= article.title %>
             </p>
             <p>
-              <%= article.id %>
-            </p>
-            <p>
               <%= link_to "Read More", article_path(article)%>
             </p>
+        </div>
+        <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 288px;">
         </div>
       </div>
       <% elsif (article.id) >= 7 || ((article.id) >= 3 && (article.id) <= 4) %>
       <div class="d-flex col-md-6 px-0 pt-0">
+      <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 260px;">
+      </div>
         <div class="col-md-6 bg-primary">
             <p>
               <%= @category.name %>
@@ -35,11 +34,14 @@
             <p>
               <%= link_to "Read More", article_path(article)%>
             </p>
-        </div>
-        <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 260px;">
         </div>
       </div>
       <% end %>
     <% end %>
   </div>
+  <% else %>
+    <p> 
+      <%= @category.name %>
+    </p>
+ <% end %> 
   

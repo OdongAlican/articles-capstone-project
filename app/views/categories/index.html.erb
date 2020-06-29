@@ -1,7 +1,6 @@
-<p id="notice"><%= notice %></p>
 <% if Article.any? %>
 <div class="d-flex">
-  <div class="background-image col-md-8 position-relative d-flex mx-2 main-article" style="background-image: url('<%= rails_blob_url(Article.order("votes_count DESC").first.image ) if Article.any?%>');">
+  <div class="background-image col-md-8 position-relative d-flex main-article" style="background-image: url('<%= rails_blob_url(Article.order("votes_count DESC").first.image ) if Article.any?%>');">
     <div class="position-absolute desc">
       <h6 class="main-heading"> 
           <%= Article.order("votes_count DESC").first.title if Article.any?%>!
@@ -12,16 +11,17 @@
     </div>
   </div>
   <div>
-    <%= link_to 'New Category', new_category_path, class: "btn btn-success" %>
+    <%= link_to 'New Category', new_category_path, class: "btn btn-success mt-2 mx-2" %>
   </div>
 </div>
 <% end %>
 <% if Category.any? %>
-<div class= "d-flex col-md-12 mt-2 row">
+<div class= "d-flex col-md-12 row pr-0">
 <% @categories.order("priority ASC").each do |category| %>
-  <div class="col-md-3">
+  <% if category.articles.length > 0 %>
+  <div class="col-md-3 px-0">
     <%= link_to category_path(category) do %>
-      <div class="background-image col-md-12 position-relative d-flex category-file" style="background-image: url('<%= rails_blob_url(category.articles.last.image ) if category.articles.length > 0 %>'); height: 180px; background-position: center;">
+      <div class=" background-image col-md-12 position-relative d-flex category-file" style="background-image: url('<%= rails_blob_url(category.articles.last.image ) if category.articles.length > 0 %>'); height: 188px; background-position: center;">
         
         <div class="text-white title title-name">
           <p class="mt-2">
@@ -36,6 +36,25 @@
       </div>
     <% end %>
   </div>
+  <% else %>
+    <div class="col-md-3 px-0">
+      <%= link_to category_path(category) do %>
+        <div class="background-image px-0 col-md-12 position-relative d-flex category-file" style="background-color: #666 ; height: 188px; background-position: center;">
+          
+          <div class="text-white title title-name">
+            <p class="mt-2">
+              <%= category.name if @categories.length > 0 %>
+            </p>
+          </div>
+          <div class="position-absolute text-white title">
+            <span>
+              Add an Article to this category!!!
+            </span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 </div>
 
