@@ -8,53 +8,68 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://kit.fontawesome.com/668d372fa7.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-secondary text-light d-flex flex-row">
-  <% if logged_in? %>
-    <div class ="float-left">
-      <a>
-        <%= link_to "Users", users_path, class: "navbar-brand text-light" %>
-      </a>
-    </div>
-    <div class ="float-left">
-      <a>
-        <%= link_to "Articles", articles_path, class: "navbar-brand text-light" %>
-      </a>
-    </div>
-    <div class ="float-left w-50">
-      <a>
-        <%= link_to "Categories", categories_path, class: "navbar-brand text-light" %>
-      </a>
-    </div>
-    <% end %>
-    <div class="collapse navbar-collapse d-flex justify-content-end" >
-      <ul class="navbar-nav">
-        <% if !logged_in? %>
-          <li class="nav-item">
-              <a>
-                <%= link_to "Sign Up", new_user_path,  class: "nav-link text-light"%> 
-              </a>
-            </li>
-          <li class="nav-item">
-              <a>
-                <%= link_to "Sign In", login_path, class: "nav-link text-light"%> 
-              </a>
-          </li>
-        <% else %>
-          <li class="nav-item">
+    <div class="general">
+      <nav class="navbar navbar-expand-lg d-flex flex-row">
+        <div class ="float-left d-flex col-md-3">
+          <h2 class="d-flex"> soFTeARth </h2>
+          <div class="dummy-red"></div>
+        </div>
+        <div class="col-md-6 justify-content-center d-flex middle-division">
+          <div class ="float-left">
             <a>
-              <%= link_to "Log Out", logout_path, method: :delete, class: "nav-link text-light"%> 
+              <%= link_to "USERS", users_path, class: "navbar-brand" %>
             </a>
-          </li>   
-        <% end %>    
-      </ul>
+          </div>
+          <div class ="float-left">
+            <a>
+              <%= link_to "ARTICLES", articles_path, class: "navbar-brand" %>
+            </a>
+          </div>
+          <div class ="float-left">
+            <a>
+              <%= link_to "CATEGORIES", categories_path, class: "navbar-brand" %>
+            </a>
+          </div>
+        </div>
+        <div class="collapse navbar-collapse d-flex justify-content-end col-md-3 authenticate" >
+          <ul class="navbar-nav">
+            <% if !logged_in? %>
+              <li class="nav-item login">
+                  <a>
+                    <p><%= link_to "LOGIN", login_path, class: "nav-link "%></p> 
+                  </a>
+              </li>
+              <li class="nav-item ">
+                  <a>
+                    <%= link_to "REGISTER", new_user_path,  class: "nav-link"%> 
+                  </a>
+              </li>
+              <li class="nav-item search">
+                <a>
+                  <i class="fas fa-search"></i>   
+                </a>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <a>
+                  <%= link_to "LOGOUT", logout_path, method: :delete, class: "nav-link "%> 
+                </a>
+              </li>
+            <% end %>    
+          </ul>
+        </div>
+      </nav>
+      <div class="lower-nav w-100">
+        <div class="inner-lower-nav bg-danger w-25 h-100"></div>
+      </div> 
+      <div class="px-4 pt-4">
+        <%= yield %>
+      </div> 
     </div>
-  </nav>
-  <div class="px-4 pt-4">
-    <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
-   </div> 
   </body>
 </html>

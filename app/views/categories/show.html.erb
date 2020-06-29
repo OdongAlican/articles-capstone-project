@@ -5,7 +5,7 @@
   <%= @category.name %>
 </p>
 <div class="d-flex col-md-12 row">
-<% @category.articles.each do |article| %>
+<% @category.articles.order("created_at DESC").each do |article| %>
   <div class="col-md-4">
     <%= link_to article_path(article) do %>
       <div class="card background-image col-md-12 position-relative d-flex" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 250px; background-position: center;">
