@@ -48,13 +48,24 @@
  .lower-nav {
      background-color: #847E78;
      height: 5px;
+     position: fixed;
+     z-index: 1;
  }
 
 nav {
     color: #777;
-    height: 65px;
+    height: 75px;
     position: fixed;
     top: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    align-items: center;
+    border-top: 10px solid #4E443F;
+    border-right: 10px solid #4E443F;
+    border-left: 10px solid #4E443F;
+    right: 0;
+    left: 0;
 }
 
 .inner-section {
@@ -153,8 +164,10 @@ footer {
 
 .top-section {
     background-color: #E8E8E8;
-    padding-bottom: 40px;
+    min-height: 550px;
     overflow: auto;
+    padding-bottom: 30px;
+    margin-top: 65px;
 }
 
 .text-deco {
@@ -163,11 +176,32 @@ footer {
     margin-top: 5px;
 }
 
-.text-read {
+.text-read, .conditions {
     font-size: small;
+    color: #F45F25;
+}
+
+.conditions a {
     color: #F45F25;
 }
 
 .deco-color {
     background-color: #91979d;
+}
+
+footer p {
+    font-size: small;
+}
+
+.navbar {
+    position: fixed !important; 
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.special-category {
+    color: #F9A532;
+    border-bottom: 2px solid #F9A532;
+    height: 22px;
 }
