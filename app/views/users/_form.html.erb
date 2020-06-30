@@ -13,15 +13,15 @@
   <% end %>
 
   <div class="field mt-3">
-    <%= form.text_field :name , placeholder: 'Enter your user name...' , class: "form-control"%>
+    <%= form.text_field :name, id: :name_content , placeholder: 'Enter your user name...' , class: "form-control"%>
   </div>
 
   <div class="field mt-3">
-    <%= form.text_field :email , placeholder: 'Enter Your Email address....' , class: "form-control"%>
+    <%= form.text_field :email, id: :email_content , placeholder: 'Enter Your Email address....' , class: "form-control"%>
   </div>
 
   <div class="actions">
-    <%= form.submit class: "btn btn-primary mt-2 form-control mb-2" %>
+    <%= form.submit "Sign Up", class: "btn btn-primary mt-2 form-control mb-2" %>
   </div>
 <% end %>
 </center>
