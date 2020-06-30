@@ -21,7 +21,7 @@
 <div class="background-image border col-md-8 position-relative d-flex main-article" style="background-color: #666 ; height: 360px; background-position: center;">
   <div class="position-absolute desc">
     <h6 class="main-heading"> 
-        Hey <%= current_user.name  %>
+        Hey <%= current_user.name if logged_in? %>
     </h6>
     <h6 class="text-white"> 
         No Articles have bee created yet !!
