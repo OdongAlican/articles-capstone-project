@@ -10,11 +10,30 @@
       </h6>
     </div>
   </div>
-  <div>
-    <% if current_user %>
+  <div class="category-button">
+    <% if logged_in? %>
       <%= link_to 'New Category', new_category_path, class: "btn btn-success mt-2 mx-2" %>
     <% end %>
   </div>
+</div>
+<% else %>
+<div class="d-flex">
+<div class="background-image border col-md-8 position-relative d-flex main-article" style="background-color: #666 ; height: 360px; background-position: center;">
+  <div class="position-absolute desc">
+    <h6 class="main-heading"> 
+        Hey <%= current_user.name  %>
+    </h6>
+    <h6 class="text-white"> 
+        No Articles have bee created yet !!
+        Please go ahead and Create some Articles
+    </h6>
+  </div>
+</div>
+<div class="category-button">
+  <% if logged_in? %>
+    <%= link_to 'New Category', new_category_path, class: "btn btn-success mt-2 mx-2" %>
+  <% end %>
+</div>
 </div>
 <% end %>
 <% if Category.any? %>
@@ -60,8 +79,10 @@
 <% end %>
 </div>
 <% else %>
-    <p> Welcome <%= current_user.name %> </p>
-    <p> Please Go ahead and create Articles and Categories </p> 
-    <%= link_to 'New Category', new_category_path %>
+  <% if logged_in? %>
+    <h2 class="text-secondary mt-2 ml-3"> Welcome <%= current_user.name %> </h2>
+    <h4 class="text-dark mt-2 ml-3"> Please Go ahead and create Articles and Categories </h4> 
+    <%= link_to 'New Category', new_category_path , class: "btn btn-primary ml-3 mt-2" %>
+  <% end %>
 <% end %>
 

@@ -17,6 +17,12 @@
      background-repeat: no-repeat;
  }
 
+ .category-button {
+     position: fixed;
+     right: 0;
+     margin-right: 20px;
+ }
+
  .title {
      bottom: 0;
      color: white;
