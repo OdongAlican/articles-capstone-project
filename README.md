@@ -1,24 +1,76 @@
-# README
+## Ruby on Rails Capstone (Lifestyle Article).[Solo Project]
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Articles Blog Description
+This Project is mainly based on posting and voting articles. The article with the highest number of votes is displayed as the main article on the home page. An article belongs to various categories and vice-versa. A logged user can only vote an article once. 
 
-Things you may want to cover:
+## Built With
+This project development was achieved using the following technologies:
 
-* Ruby version
+- Ruby on Rails,
+- Bootstrap and CSS
+- Rspec
 
-* System dependencies
+## Live Demo
 
-* Configuration
+[Live Demo Link](https://repl.it/@Odong/RubyWebScraper)
 
-* Database creation
+## Getting Started
 
-* Database initialization
+To get a local copy up and running follow these simple example steps.
 
-* How to run the test suite
+### Prerequisites
 
-* Services (job queues, cache servers, search engines, etc.)
+#### You should have installed git on your local machine and a text editor of your choice.
+### Setup
 
-* Deployment instructions
+- Forking the project-Repository
+- Cloning the project to your local machine
+- `cd` into the project directory
+- Run `bundle install` to install the Gemfiles
+- Run `db:migrate` to install the Gemfiles
+- From the root directory, run `rails server` to start the Project on `localhost:3000`
+- Sign Up in the application and create categories
+- Continue and also create an article.
+- Assign an article a category
+- Upvote an article and notice that it takes the bigger section on the home page.
+- When through, Log out of the application and you will notice that other users can also view the     created articles but cannot create their own unless they sign up 
 
-* ...
+
+## Author
+
+👤 **Author**
+
+- Github: [@OdongAlican](https://github.com/OdongAlican)
+- Twitter: [@odongsandie](https://twitter.com/odongsandie)
+- Linkedin: [Sunday Alican odong](https://www.linkedin.com/in/sunday-alican-odong-b99226b7)
+
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome! Start by:
+
+- Forking the project
+- Cloning the project to your local machine
+- `cd` into the project directory
+- Run `git checkout -b your-branch-name`
+- Make your contributions
+- Push your branch up to your forked repository
+- Open a Pull Request with a detailed description to the development branch of the original project for a review
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Appreciation to my coding Partner and mentor
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
