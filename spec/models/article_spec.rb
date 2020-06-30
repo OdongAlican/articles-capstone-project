@@ -10,7 +10,7 @@ RSpec.describe Article, type: :model do
   describe 'associations' do
     it { should belong_to(:author).class_name('User') }
     it { should have_many(:article_categories).with_foreign_key(:article_id) }
-    it { should have_many(:categories).through(:article_categories)}
+    it { should have_many(:categories).through(:article_categories) }
     it { should have_many(:votes) }
   end
 end
