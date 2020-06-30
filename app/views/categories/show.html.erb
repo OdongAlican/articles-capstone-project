@@ -40,8 +40,22 @@
     <% end %>
   </div>
   <% else %>
-    <p> 
-      <%= @category.name %>
-    </p>
+  <div class="col-md-3 px-0">
+  <%= link_to category_path(@category) do %>
+    <div class="ml-2 mt-1 background-image col-md-12 position-relative d-flex category-file" style="background-color: #666 ; height: 350px; background-position: center;">
+      
+      <div class="text-white title title-name">
+        <p class="mt-2">
+          <%= @category.name %>
+        </p>
+      </div>
+      <div class="position-absolute text-white title">
+        <span>
+          Add an Article to this category!!!
+        </span>
+        </div>
+        </div>
+      <% end %>
+  </div>
  <% end %> 
   

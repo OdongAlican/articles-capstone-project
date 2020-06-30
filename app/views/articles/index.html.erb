@@ -7,21 +7,30 @@
   </div>
 </div>
 <div class= "d-flex col-md-12 row">
-<% @articles.each do |article| %>
-  <div class="col-md-4">
+<% @articles.order("created_at DESC").each  do |article| %>
+  <div class="col-md-3 border pr-0">
     <%= link_to article_path(article) do %>
-      <div class="background-image col-md-12 position-relative d-flex" style="background-image: url('<%= rails_blob_url(article.image) %>'); height: 250px; background-position: center;">
-        
-        <div class="position-absolute h-25 text-white title">
-          <p>
-            <strong>Title:</strong>
-            <%= article.title %>
-          </p>
-          <p>
-            <strong>Text:</strong>
-            <%= article.text %>
+      <div class="background-image  col-md-12 d-flex px-1" style="background-image: url('<%= rails_blob_url(article.image) %>'); height: 130px; background-position: center;">
+        <div class="title-name text-white name-underline">
+         <p> 
+          <strong>By:</strong>
+            <%= article.author.name %>
           </p>
         </div>
+      </div>        
+      <div class="col-md-12 title deco-color mb-1 long-article" style="height: 100px;">
+        <p class="text-deco">
+          <strong>
+              <%= article.title %>
+          </strong>
+        </p>
+        <p  class="text-deco">
+          <%= article.text[0...30]%> ...
+        </p>
+        <p class="text-read">
+        Read More
+          <% article_path(article) %>
+        </p>
       </div>
     <% end %>
   </div>
