@@ -2,7 +2,6 @@
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being Updated:</h2>
-
       <ul>
         <% @article.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,15 +9,14 @@
       </ul>
     </div>
   <% end %>
-    
+   <% if current_user %> 
     <div>
         <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text } %> 
+          <% cb.label(class: "mr-3 text-secondary font-weight-bold") {cb.check_box(class: "mr-1") + cb.text } %> 
         <% end %>
     </div>
-         
     <div class="actions">
-      <%= form.submit 'Update Categories' %>
+      <%= form.submit 'Update Categories', class: "btn btn-info" %>
     </div>
-    
+  <% end %>  
   <% end %>

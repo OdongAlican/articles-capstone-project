@@ -1,25 +1,52 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Category Name:</strong>
-  <%= @category.name %>
-</p>
-<div class="d-flex col-md-12 row">
-<% @category.articles.each do |article| %>
-  <div class="col-md-4">
-    <%= link_to article_path(article) do %>
-      <div class="card background-image col-md-12 position-relative d-flex" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 250px; background-position: center;">
-        
-        <div class="position-absolute h-25 text-white title">
-          <p>
-            <%= article.title %>
-          </p>
+  <% if @category.articles.length > 0 %>
+  <div class="col-md-12 d-flex row pr-0 pt-0">
+    <% @category.articles.order("created_at DESC").each do |article| %>
+      <div class="d-flex col-md-6 px-0 pt-0">
+        <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 288px;">
+        </div>
+        <div class="col-md-6 pt-2 border">
+          <div class="special-category" >
+            <p>
+              <%= @category.name %>
+            </p>
+          </div>
+          <div>
+            <p class="text-dark mt-2">
+              <strong class="text-dark">
+                <%= article.title %>
+              </strong>  
+            </p>
+          </div>
+          <div>
+            <p class="text-secondary">
+              <%= article.text[1..200] %>...
+            </p>
+          </div>
+          <div>
+            <p class="conditions">
+              <%= link_to "Read More", article_path(article)%>
+            </p>
+          </div>  
         </div>
       </div>
     <% end %>
   </div>
-<% end %>
-</div>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+  <% else %>
+  <div class="col-md-3 px-0">
+  <%= link_to category_path(@category) do %>
+    <div class="ml-2 mt-1 background-image col-md-12 position-relative d-flex category-file" style="background-color: #666 ; height: 350px; background-position: center;">
+      <div class="text-white title title-name">
+        <p class="mt-2">
+          <%= @category.name %>
+        </p>
+      </div>
+      <div class="position-absolute text-white title">
+        <span>
+          Add an Article to this category!!!
+        </span>
+        </div>
+        </div>
+      <% end %>
+  </div>
+ <% end %> 
+  

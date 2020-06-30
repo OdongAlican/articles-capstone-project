@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :articles
+  resources :articles do
+    resources :votes, only: [:create, :destroy]
+  end
   root to: "sessions#new"
   resources :users
   resources :categories

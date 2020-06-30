@@ -12,21 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: "text-secondary font-weight-bold" %>
+    <%= form.text_field :title, class: "form-control col-md-3", placeholder: "Enter Article Name" %>
   </div>
 
   <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
+    <%= form.label :text, class: "text-secondary font-weight-bold"  %>
+    <%= form.text_area :text, class: "form-control col-md-3", placeholder: "Write your Article Here!!!" %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.label :image, class: "text-secondary font-weight-bold"  %>
+    <%= form.file_field :image, class: "form-control col-md-3 btn-secondary" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary mt-2"%>
   </div>
 <% end %>

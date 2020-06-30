@@ -12,17 +12,17 @@
     <% end %>
   
     <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+      <%= form.label :name, class: "text-secondary font-weight-bold" %>
+      <%= form.text_field :name, class: "form-control col-md-6", placeholder: "Enter Category Name" %>
     </div>
   
     <div class="field">
-      <%= form.label :priority %>
-      <%= form.number_field :priority %>
+      <%= form.label :priority, class: "text-secondary font-weight-bold" %>
+      <%= form.number_field :priority, class: "form-control col-md-6", placeholder: "Enter Category Priority" %>
     </div>
     
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit class: "btn btn-primary mt-2"%>
     </div>
   <% end %>
   
