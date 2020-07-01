@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'devise'
 RSpec.describe CategoriesController, type: :controller do
   describe 'GET #index' do
     it 'gets all the categories and render index page' do
