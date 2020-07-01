@@ -12,7 +12,7 @@ This project development was achieved using the following technologies:
 
 ## Live Demo
 
-[Live Demo Link](https://repl.it/@Odong/RubyWebScraper)
+[Live Demo Link](https://powerful-island-34947.herokuapp.com/categories)
 
 ## Getting Started
 
