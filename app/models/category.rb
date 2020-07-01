@@ -6,4 +6,5 @@ class Category < ApplicationRecord
 
   has_many :article_categories, foreign_key: :category_id, dependent: :destroy
   has_many :articles, through: :article_categories, source: :article
+  belongs_to :user
 end
