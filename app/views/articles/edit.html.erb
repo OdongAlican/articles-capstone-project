@@ -1,14 +1,6 @@
 <div class="container mt-2">
     <h3 class="text-secondary">Editing Article</h3>
-
-    <% if logged_in? && current_user.id == @article.author.id %>
-        <%= render 'form', article: @article %>
-    <% else %>
-        <h3 class = "text-secondary mt-3 mb-3"> 
-            Hey <%= current_user.name %> You can only Edit the Articles You created !!!
-        </h3>    
-    <% end %>
-
+    <%= permit_update(@article) %>
     <%= link_to 'Show', @article, class: "btn btn-info mt-2" %> 
     <%= link_to 'Back', articles_path, class: "btn btn-secondary mt-2" %>
 </div>
