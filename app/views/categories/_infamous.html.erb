@@ -1,0 +1,18 @@
+<div class="d-flex">
+    <div class="background-image border col-md-8 position-relative d-flex main-article" style="background-color: #666 ; height: 360px; background-position: center;">
+        <div class="position-absolute desc">
+            <h6 class="main-heading"> 
+                Hey <%= current_user.name if logged_in? %>
+            </h6>
+            <h6 class="text-white"> 
+                No Articles have bee created yet !!
+                Please go ahead and Create some Articles
+            </h6>
+        </div>
+    </div>
+    <div class="category-button">
+        <% if logged_in? %>
+            <%= link_to 'New Category', new_category_path, class: "btn btn-success mt-2 mx-2" %>
+        <% end %>
+    </div>
+</div>

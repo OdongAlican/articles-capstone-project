@@ -1,7 +1,7 @@
 <div class="col-md-12 d-flex row pr-0 pt-0">
   <% @category.articles.order("created_at DESC").each do |article| %>
     <div class="d-flex col-md-6 px-0 pt-0">
-      <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image ) if @category.articles.length > 0 %>'); height: 288px;">
+      <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image )%>'); height: 288px;">
       </div>
       <div class="col-md-6 pt-2 border">
         <div class="special-category" >

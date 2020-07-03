@@ -43,4 +43,28 @@ module ApplicationHelper
         render :partial =>  '/articles/info'
     end
   end
+
+  def famous_article(articles)
+    if articles
+      render :partial =>'famous'
+    else
+      render :partial => 'infamous'
+    end
+  end
+
+  def all_categories(categories)
+    if categories.length > 0
+      render :partial => 'catlist'
+    elsif logged_in? && categories.length == 0
+        link_to('New Category', new_category_path , class: "btn btn-primary ml-3 mt-2")
+    end
+  end
+
+  def order_categories(category)
+    if category.articles.length > 0 
+      render :partial => 'cat_articles', :locals => {:category => category}
+    else
+      render :partial => 'no_articles', :locals => {:category => category}
+    end
+  end
 end

@@ -3,6 +3,8 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @famous_article ||= Article.order("votes_count DESC").first
+    @articles = Article.any?
   end
 
   def show; end
