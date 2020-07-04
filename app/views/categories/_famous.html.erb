@@ -1,17 +1,18 @@
 <div class="d-flex">
   <div class="background-image border col-md-8 position-relative d-flex main-article" style="background-image: url('<%= rails_blob_url(@famous_article.image ) %>');">
     <div class="position-absolute desc">
-      <h6 class="main-heading"> 
+      <h5 class="main-heading"> 
           <%= @famous_article.title %>!
-      </h6>
+      </h5>
       <h6 class="text-white"> 
           <%= @famous_article.text[0..70] %>...
+      </h6>
+      <h6 class="conditions"> 
+        <%= link_to 'Read More', article_path(@famous_article) %>...
       </h6>
     </div>
   </div>
   <div class="category-button">
-    <% if logged_in? %>
-      <%= link_to 'New Category', new_category_path, class: "btn btn-success mt-2 mx-2" %>
-    <% end %>
+    <%= new_category %>
   </div>
 </div>

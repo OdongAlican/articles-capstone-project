@@ -36,11 +36,23 @@ module ApplicationHelper
     end
   end
 
+  def delete_article(article)
+    if logged_in? && current_user.id == article.author.id 
+        link_to('Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger form-control mx-2")
+    end
+  end
+
   def permit_category(category)
     if logged_in? && current_user.id == @category.user_id 
         render :partial =>  'form'
     else
         render :partial =>  '/articles/info'
+    end
+  end
+
+  def delete_category(category)
+    if logged_in? && current_user.id == @category.user_id 
+      link_to('Destroy', @category, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger form-control mx-2")
     end
   end
 
@@ -65,6 +77,18 @@ module ApplicationHelper
       render :partial => 'cat_articles', :locals => {:category => category}
     else
       render :partial => 'no_articles', :locals => {:category => category}
+    end
+  end
+
+  def new_category
+    if logged_in?
+      link_to('New Category', new_category_path, class: "btn btn-success mt-2 mx-2")
+    end
+  end
+  
+  def cat_in_articles(form)
+    if current_user && Category.any?
+      render :partial => 'cat_list', :locals => {:form => form}
     end
   end
 end
