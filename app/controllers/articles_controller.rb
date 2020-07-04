@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   # GET /articles/1.json
-  def show 
+  def show
     @categories = Category.all
   end
 

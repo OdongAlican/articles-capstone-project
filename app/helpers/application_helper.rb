@@ -9,86 +9,78 @@ module ApplicationHelper
   end
 
   def update_article
-    if current_user != nil
-        render :partial => 'rights'
-    end
+    render partial: 'rights' unless current_user.nil?
   end
 
   def update_category
-    if current_user != nil
-      render :partial => 'authority'
-    end
+    render partial: 'authority' unless current_user.nil?
   end
 
   def category_status(category)
-    if category.articles.length > 0
-      render :partial => 'catlength'
+    if !category.articles.empty?
+      render partial: 'catlength'
     else
-      render :partial => 'emtycat'
+      render partial: 'emtycat'
     end
   end
 
   def permit_update(article)
-    if logged_in? && current_user.id == article.author.id 
-        render :partial => 'form'
+    if logged_in? && current_user.id == article.author.id
+      render partial: 'form'
     else
-        render :partial => 'info'
+      render partial: 'info'
     end
   end
 
   def delete_article(article)
-    if logged_in? && current_user.id == article.author.id 
-        link_to('Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger form-control mx-2")
+    if logged_in? && current_user.id == article.author.id
+      link_to('Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger form-control mx-2')
     end
   end
 
-  def permit_category(category)
-    if logged_in? && current_user.id == @category.user_id 
-        render :partial =>  'form'
+  def permit_category(_category)
+    if logged_in? && current_user.id == @category.user_id
+      render partial: 'form'
     else
-        render :partial =>  '/articles/info'
+      render partial: '/articles/info'
     end
   end
 
-  def delete_category(category)
-    if logged_in? && current_user.id == @category.user_id 
-      link_to('Destroy', @category, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger form-control mx-2")
+  def delete_category(_category)
+    if logged_in? && current_user.id == @category.user_id
+      link_to('Destroy', @category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger form-control mx-2')
     end
   end
 
   def famous_article(articles)
     if articles
-      render :partial =>'famous'
+      render partial: 'famous'
     else
-      render :partial => 'infamous'
+      render partial: 'infamous'
     end
   end
 
   def all_categories(categories)
-    if categories.length > 0
-      render :partial => 'catlist'
-    elsif logged_in? && categories.length == 0
-        link_to('New Category', new_category_path , class: "btn btn-primary ml-3 mt-2")
+    if !categories.empty?
+      render partial: 'catlist'
+    elsif logged_in? && categories.empty?
+      link_to('New Category', new_category_path, class: 'btn btn-primary ml-3 mt-2')
     end
   end
 
   def order_categories(category)
-    if category.articles.length > 0 
-      render :partial => 'cat_articles', :locals => {:category => category}
+    if !category.articles.empty?
+      render partial: 'cat_articles', locals: { category: category }
     else
-      render :partial => 'no_articles', :locals => {:category => category}
+      render partial: 'no_articles', locals: { category: category }
     end
   end
 
   def new_category
-    if logged_in?
-      link_to('New Category', new_category_path, class: "btn btn-success mt-2 mx-2")
-    end
+    link_to('New Category', new_category_path, class: 'btn btn-success mt-2 mx-2') if logged_in?
   end
-  
+
   def cat_in_articles(form)
-    if current_user && Category.any?
-      render :partial => 'cat_list', :locals => {:form => form}
-    end
+    render partial: 'cat_list', locals: { form: form } if current_user && Category.any?
   end
 end
