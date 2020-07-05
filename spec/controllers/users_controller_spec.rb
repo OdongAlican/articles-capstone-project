@@ -1,10 +1,11 @@
 require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   fixtures :users
-  let(:user)  {User.create!(name: 'First', email: 'test@example.com')}
-  let!(:user_params) { user_params = { name: "username",
-                                       email: "user@factory.com"
-                                      } }
+  let(:user) { User.create!(name: 'First', email: 'test@example.com') }
+  let!(:user_params) do
+    user_params = { name: 'username',
+                    email: 'user@factory.com' }
+  end
 
   describe 'GET #index' do
     it 'gets all the users and render index page' do
@@ -35,5 +36,4 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns(:user)).to be_persisted
     end
   end
-
 end

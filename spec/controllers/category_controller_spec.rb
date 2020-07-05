@@ -1,22 +1,22 @@
 require 'rails_helper'
 RSpec.describe CategoriesController, type: :controller do
-
   def login(user)
     session[:user_id] = user.id
   end
-  
+
   before(:each) do
     @user = FactoryBot.create(:user)
     @article = Article.create!(title: 'Sample test', text: 'Sample test', author_id: @user.id)
     login(@user)
   end
 
-  let(:user)  {FactoryBot.create(:user, name: "test", email: "test@example.com")}
-  let(:current_user) { user } 
-  let(:category) {Category.create!(name: 'First Category', priority: 1, user_id:  user.id )}
-  let(:category_params) { category_params = { name: "Second Category",
-                                               priority: 2
-                                            } }
+  let(:user) { FactoryBot.create(:user, name: 'test', email: 'test@example.com') }
+  let(:current_user) { user }
+  let(:category) { Category.create!(name: 'First Category', priority: 1, user_id: user.id) }
+  let(:category_params) do
+    category_params = { name: 'Second Category',
+                        priority: 2 }
+  end
 
   describe 'GET #index' do
     it 'gets all the categories and render index page' do
@@ -41,8 +41,8 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   describe 'POST #create' do
-  it 'creates an category ' do
-    post :create, params: { category: category_params }
+    it 'creates an category ' do
+      post :create, params: { category: category_params }
       expect(assigns(:category)).to be_persisted
     end
   end

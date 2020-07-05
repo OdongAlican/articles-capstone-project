@@ -3,18 +3,19 @@ RSpec.describe ArticlesController, type: :controller do
   def login(user)
     session[:user_id] = user.id
   end
-  
+
   before(:each) do
     @user = FactoryBot.create(:user)
     @article = Article.create!(title: 'Sample test', text: 'Sample test', author_id: @user.id)
     login(@user)
   end
-  
-  let(:user) {User.create!(name: "test", email: "test@example.com")}
-  let(:article) {Article.create!(text: 'First Article', title: 'sample test article', author_id:  user.id )}
-  let!(:article_params) { article_params = { text: "Second Article",
-                                            title: "another test article"
-                                            } }
+
+  let(:user) { User.create!(name: 'test', email: 'test@example.com') }
+  let(:article) { Article.create!(text: 'First Article', title: 'sample test article', author_id: user.id) }
+  let!(:article_params) do
+    article_params = { text: 'Second Article',
+                       title: 'another test article' }
+  end
 
   describe 'GET #index' do
     it 'gets all the articles and render index page' do
@@ -45,5 +46,4 @@ RSpec.describe ArticlesController, type: :controller do
       expect(assigns(:article)).to be_persisted
     end
   end
-
 end

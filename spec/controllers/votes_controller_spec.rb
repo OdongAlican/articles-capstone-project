@@ -1,10 +1,10 @@
 require 'rails_helper'
 RSpec.describe VotesController, type: :controller do
-  let(:current_user) {User.create!(name: "test", email: "test@example.com")}
+  let(:current_user) { User.create!(name: 'test', email: 'test@example.com') }
 
-    def login(user)
-        session[:user_id] = user.id
-    end
+  def login(user)
+    session[:user_id] = user.id
+  end
 
   before(:each) do
     @user = FactoryBot.create(:user)
@@ -28,5 +28,4 @@ RSpec.describe VotesController, type: :controller do
       expect(flash[:notice]).to match('You downvoted a article.')
     end
   end
-
 end
