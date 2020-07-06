@@ -35,12 +35,17 @@ To get a local copy up and running follow these simple example steps.
 - Run `bundle install` to install the Gemfiles
 - Run `db:migrate` to install the Gemfiles
 - From the root directory, run `rails server` to start the Project on `localhost:3000`
+
+## Usage section
+
 - Sign Up in the application and create categories
 - Continue and also create an article.
 - Assign an article a category
 - Upvote an article and notice that it takes the bigger section on the home page.
 - When through, Log out of the application and you will notice that other users can also view the     created articles but cannot create their own unless they sign up 
 
+## Checking the tests with RSpec
+The tests for the model and controllers was implemented using RSpec gem. To execute these test cases, run `bundle exec rspec ` to display the test cases of the application. 
 
 ## Author
 
@@ -62,6 +67,10 @@ Contributions, issues and feature requests are welcome! Start by:
 - Make your contributions
 - Push your branch up to your forked repository
 - Open a Pull Request with a detailed description to the development branch of the original project for a review
+
+## Credits
+
+Thanks to [Nelson Sakwa and others on Behance](https://www.behance.net/sakwadesignstudio) for his awesome design work. I based my work on  [this](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) design.
 
 ## Show your support
 
