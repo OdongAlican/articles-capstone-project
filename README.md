@@ -14,6 +14,12 @@ This project development was achieved using the following technologies:
 
 [Live Demo Link](https://powerful-island-34947.herokuapp.com/categories)
 
+## Home Page of the Application
+![screenshot](docs/Home_page.png)
+
+## Articles Page
+![screenshot](docs/articles.png)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
