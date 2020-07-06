@@ -1,0 +1,23 @@
+/* Place all the styles related to the articles controller here.
+They will automatically be included in application.css.
+You can use Sass (SCSS) here: https://sass-lang.com/
+*/
+#error_explanation h2 {
+    color: #666;
+    font-weight: bold;
+}
+
+#error_explanation ul li {
+    color: #922;
+}
+
+.text-section {
+    scroll-behavior: auto;
+    border: 1px solid lightgray;
+}
+
+.text-section h5 {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #000;
+}
