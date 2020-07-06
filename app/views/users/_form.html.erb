@@ -1,27 +1,14 @@
 <center class="col-md-4 mx-auto">
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: user, local: true) do |form| %>
+  <%= user_error(@user) %>
+    <div class="field mt-3">
+      <%= form.text_field :name, id: :name_content , placeholder: 'Enter your user name...' , class: "form-control"%>
+    </div>
+    <div class="field mt-3">
+      <%= form.text_field :email, id: :email_content , placeholder: 'Enter Your Email address....' , class: "form-control"%>
+    </div>
+    <div class="actions">
+      <%= form.submit "Sign Up", class: "btn btn-primary mt-2 form-control mb-2" %>
     </div>
   <% end %>
-
-  <div class="field mt-3">
-    <%= form.text_field :name, id: :name_content , placeholder: 'Enter your user name...' , class: "form-control"%>
-  </div>
-
-  <div class="field mt-3">
-    <%= form.text_field :email, id: :email_content , placeholder: 'Enter Your Email address....' , class: "form-control"%>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Sign Up", class: "btn btn-primary mt-2 form-control mb-2" %>
-  </div>
-<% end %>
 </center>

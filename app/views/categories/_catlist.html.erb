@@ -1,5 +1,5 @@
 <div class= "d-flex col-md-12 row pr-0">
-    <% @categories.order("priority ASC").each do |category| %>
+    <% @categories.each do |category| %>
         <%= order_categories(category) %>
     <% end %>
 </div>
