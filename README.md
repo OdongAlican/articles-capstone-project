@@ -1,7 +1,7 @@
 ## Ruby on Rails Capstone (Lifestyle Article).[Solo Project]
 
 ### Articles Blog Description
-This Project is mainly based on posting and voting articles. The article with the highest number of votes is displayed as the main article on the home page. An article belongs to various categories and vice-versa. A logged user can only vote an article once. 
+This Project is mainly based on posting and voting articles. The article with the highest number of votes is displayed as the main article on the home page. An article belongs to various categories and vice-versa. A logged user can only vote an article once. This [ERD](https://app.lucidchart.com/documents/edit/b0da518b-23c4-459e-9306-2d5ee71471bf/0_0?beaconFlowId=1BFEDD3F9F8A9DD6#?folder_id=home&browser=icon) diagram demonstrates the association among the various models used in the application
 
 ## Built With
 This project development was achieved using the following technologies:
