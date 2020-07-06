@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by(name: params[:session][:name])
+    user = User.find_by(session_params)
     if user
       session[:user_id] = user.id
       flash[:success] = 'Invalid name/password combination'
@@ -17,5 +17,11 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     flash[:success] = 'You have logged out'
     redirect_to root_path
+  end
+
+  private
+
+  def session_params
+    params.require(:session).permit(:name)
   end
 end

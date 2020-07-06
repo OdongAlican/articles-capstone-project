@@ -20,4 +20,16 @@ You can use Sass (SCSS) here: https://sass-lang.com/
     font-weight: bold;
     text-decoration: underline;
     color: #000;
+    position: relative;
+}
+
+.article-author {
+    position: absolute;
+    height: 20px;
+    bottom: 0;
+    left: 0;
+    color: lightsalmon;
+    text-decoration: underline;
+    margin: 5px;
+    font-size: small;
 }
