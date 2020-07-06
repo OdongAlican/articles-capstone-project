@@ -1,10 +1,12 @@
 module ApplicationHelper
   def like_or_dislike_btn(article)
-    vote = Vote.find_by(article: article, user: current_user)
-    if vote
-      link_to('Downvote!', article_vote_path(id: vote.id, article_id: article.id), method: :delete, class: 'btn btn-warning')
-    else
-      link_to('Vote!', article_votes_path(article_id: article.id), method: :article, class: 'btn btn-primary')
+    if current_user
+      vote = Vote.find_by(article: article, user: current_user)
+      if vote
+        link_to('Downvote!', article_vote_path(id: vote.id, article_id: article.id), method: :delete, class: 'btn btn-warning')
+      else
+        link_to('Vote!', article_votes_path(article_id: article.id), method: :article, class: 'btn btn-primary')
+      end
     end
   end
 
@@ -82,5 +84,13 @@ module ApplicationHelper
 
   def cat_in_articles(form)
     render partial: 'cat_list', locals: { form: form } if current_user && Category.any?
+  end
+
+  def user_logged
+    current_user.name if logged_in?
+  end
+
+  def any_category(category)
+    category.name unless @categories.empty?
   end
 end

@@ -1,8 +1,6 @@
-<% if current_user %>
-  <div>
-    <div class='article-liking'>
-      <%= like_or_dislike_btn(article) %>
-    </div>
+<div>
+  <div class='article-liking'>
+    <%= like_or_dislike_btn(article) %>
   </div>
-<% end %>
+</div>
 <p class = "comments text-secondary font-weight-bold"> <%= article.votes.count %> Votes </p>

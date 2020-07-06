@@ -9,8 +9,7 @@ class Category < ApplicationRecord
   belongs_to :user
 
   def latest_article
-    result = articles.order("created_at DESC")
-    return result
+    result = articles.order('created_at DESC')
+    result
   end
-  
 end

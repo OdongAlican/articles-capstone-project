@@ -1,13 +1,9 @@
 <div class="d-flex col-md-12 my-1 ">
   <div class="col-md-10 text-secondary">
-    <% if @articles.length > 0 %>
-      <h4> Articles Page </h4>
-    <% end %>
+    <%= article_header %>
   </div>
   <div class="col-md-2">
-    <% if current_user %>
-      <%= link_to 'New Article', new_article_path, class: "btn btn-success mt-1" %>
-    <% end %>
+    <%= article_create %>
   </div>
 </div>
 <div class= "d-flex col-md-12 row">
