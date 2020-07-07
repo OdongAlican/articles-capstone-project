@@ -6,7 +6,7 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   describe 'GET #new' do
-    it 'gives the login page' do
+    it 'renders new session page' do
       get :new
       expect(response).to be_successful
       expect(response).to render_template(:new)
