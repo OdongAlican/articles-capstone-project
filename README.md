@@ -12,7 +12,7 @@ This project development was achieved using the following technologies:
 
 ## Live Demo
 
-[Live Demo Link](https://powerful-island-34947.herokuapp.com/categories)
+[Live Demo Link](https://sheltered-reaches-11540.herokuapp.com/categories)
 
 ## Home Page of the Application
 ![screenshot](docs/Home_page.png)
