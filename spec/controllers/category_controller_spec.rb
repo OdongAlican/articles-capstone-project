@@ -47,10 +47,10 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
-  describe 'DELETE #destroy' do                                                     
-    it 'deletes a Category' do          
-     category = FactoryBot.create(:category) 
-      expect { delete :destroy, params: {id: category.id} }.to change(Category, :count).by(-1)
-    end                                                                         
-  end  
+  describe 'DELETE #destroy' do
+    it 'deletes a Category' do
+      category = FactoryBot.create(:category)
+      expect { delete :destroy, params: { id: category.id } }.to change(Category, :count).by(-1)
+    end
+  end
 end

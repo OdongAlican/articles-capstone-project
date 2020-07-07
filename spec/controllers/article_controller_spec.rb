@@ -47,10 +47,10 @@ RSpec.describe ArticlesController, type: :controller do
     end
   end
 
-  describe 'DELETE #destroy' do                                                     
-    it 'deletes an Article' do          
-     article = FactoryBot.create(:article) 
-      expect { delete :destroy, params: {id: article.id} }.to change(Article, :count).by(-1)
-    end                                                                         
-  end      
+  describe 'DELETE #destroy' do
+    it 'deletes an Article' do
+      article = FactoryBot.create(:article)
+      expect { delete :destroy, params: { id: article.id } }.to change(Article, :count).by(-1)
+    end
+  end
 end
