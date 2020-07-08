@@ -29,28 +29,24 @@ module ApplicationHelper
   def permit_update(article)
     if logged_in? && current_user.id == article.author.id
       render partial: 'form'
-    else
-      render partial: 'info'
     end
   end
 
   def delete_article(article)
     if logged_in? && current_user.id == article.author.id
-      link_to('Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger form-control mx-2')
+      render partial: 'edit_delete'
     end
   end
 
-  def permit_category(_category)
-    if logged_in? && current_user.id == @category.user_id
+  def permit_category(category)
+    if logged_in? && current_user.id == category.user_id
       render partial: 'form'
-    else
-      render partial: '/articles/info'
     end
   end
 
-  def delete_category(_category)
-    if logged_in? && current_user.id == @category.user_id
-      link_to('Destroy', @category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger form-control mx-2')
+  def delete_category(category)
+    if logged_in? && current_user.id == category.user_id
+      render partial: 'edit_delete'
     end
   end
 
