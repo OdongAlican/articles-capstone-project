@@ -27,27 +27,19 @@ module ApplicationHelper
   end
 
   def permit_update(article)
-    if logged_in? && current_user.id == article.author.id
-      render partial: 'form'
-    end
+    render partial: 'form' if logged_in? && current_user.id == article.author.id
   end
 
   def delete_article(article)
-    if logged_in? && current_user.id == article.author.id
-      render partial: 'edit_delete'
-    end
+    render partial: 'edit_delete' if logged_in? && current_user.id == article.author.id
   end
 
   def permit_category(category)
-    if logged_in? && current_user.id == category.user_id
-      render partial: 'form'
-    end
+    render partial: 'form' if logged_in? && current_user.id == category.user_id
   end
 
   def delete_category(category)
-    if logged_in? && current_user.id == category.user_id
-      render partial: 'edit_delete'
-    end
+    render partial: 'edit_delete' if logged_in? && current_user.id == category.user_id
   end
 
   def famous_article(articles)
