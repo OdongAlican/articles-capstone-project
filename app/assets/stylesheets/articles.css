@@ -33,3 +33,10 @@ You can use Sass (SCSS) here: https://sass-lang.com/
     margin: 5px;
     font-size: small;
 }
+
+.border-div {
+    border: 1px solid #aaa;
+    padding: 0 2px;
+    margin: 0 2px;
+    border-radius: 2px;
+}

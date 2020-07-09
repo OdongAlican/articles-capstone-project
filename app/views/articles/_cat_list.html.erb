@@ -1,8 +1,5 @@
 <div class="mt-2">
-    <%= form.collection_check_boxes :category_ids, @categories, :id, :name do |cb| %>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
         <% cb.label(class: "mr-3 text-secondary font-weight-bold") {cb.check_box(class: "mr-1") + cb.text } %> 
     <% end %>
-</div>
-<div class="actions">
-    <%= form.submit 'Update Categories', class: "btn btn-info" %>
 </div>

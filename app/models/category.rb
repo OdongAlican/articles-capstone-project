@@ -4,8 +4,8 @@ class Category < ApplicationRecord
   validates_uniqueness_of :priority
   validates_uniqueness_of :name
 
-  has_many :article_categories, foreign_key: :category_id, dependent: :destroy
-  has_many :articles, through: :article_categories, source: :article
+  has_many :article_categories, dependent: :destroy
+  has_many :articles, through: :article_categories
   belongs_to :user
 
   def latest_article
