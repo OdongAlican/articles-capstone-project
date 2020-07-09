@@ -2,13 +2,11 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
-    @articles = Article.all.order('created_at DESC')
+    @articles = Article.most_recent
     @article = Article.new
   end
 
-  def show
-    @categories = Category.all
-  end
+  def show; end
 
   def new
     @article = Article.new

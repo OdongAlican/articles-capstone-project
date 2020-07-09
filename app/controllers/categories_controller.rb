@@ -2,8 +2,8 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
 
   def index
-    @categories = Category.all.order('priority ASC')
-    @famous_article ||= Article.order('votes_count DESC').first
+    @categories = Category.most_important
+    @famous_article = Article.most_famous
     @articles = Article.any?
   end
 
