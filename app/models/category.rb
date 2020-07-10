@@ -11,7 +11,7 @@ class Category < ApplicationRecord
   scope :most_important, -> { order('priority asc').limit(100) }
 
   def latest_article
-    result = articles.order('created_at DESC')
+    result = articles.order('created_at desc')
     result
   end
 end

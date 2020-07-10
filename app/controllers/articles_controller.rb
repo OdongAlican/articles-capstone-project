@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :require_user, only: %i[new edit update destroy show index]
+  before_action :require_same_author, only: %i[edit update destroy]
 
   def index
     @articles = Article.most_recent
@@ -55,5 +57,13 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :text, :image, category_ids: [])
+  end
+
+  def require_same_author
+    if current_user != @article.author
+      respond_to do |format|
+        format.html { redirect_to articles_url, notice: 'You can only edit your own Article!!' }
+      end
+    end
   end
 end
