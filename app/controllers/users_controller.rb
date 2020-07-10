@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   def show; end
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to categories_path
+    else
+      @user = User.new
+    end
   end
 
   def edit; end
