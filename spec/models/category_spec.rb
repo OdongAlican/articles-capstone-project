@@ -29,6 +29,7 @@ RSpec.describe Category, type: :model do
   describe '#Category order' do
     it 'returns first 100 most recent categories' do
       expect(Category.most_important.count).to_not eql(101)
+      expect(Category.most_important.count).to eql(0)
     end
   end
 end
