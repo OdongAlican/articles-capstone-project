@@ -9,7 +9,7 @@ RSpec.describe VotesController, type: :controller do
   before(:each) do
     @user = FactoryBot.create(:user)
     @article = Article.create!(title: 'Sample test', text: 'Sample test', author_id: @user.id,
-                                      image: fixture_file_upload('spec/fixtures/articl.png', 'image/png'))
+                               image: fixture_file_upload('spec/fixtures/articl.png', 'image/png'))
     login(@user)
   end
 

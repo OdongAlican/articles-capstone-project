@@ -7,16 +7,18 @@ RSpec.describe ArticlesController, type: :controller do
   before(:each) do
     @user = FactoryBot.create(:user)
     @article = Article.create!(title: 'Sample test', text: 'Sample test', author_id: @user.id,
-                                image: fixture_file_upload('spec/fixtures/articl.png', 'image/png'))
+                               image: fixture_file_upload('spec/fixtures/articl.png', 'image/png'))
     login(@user)
   end
 
   let(:user) { User.create!(name: 'test', email: 'test@example.com') }
-  let(:article) { Article.create!(text: 'First Article', title: 'sample test article', author_id: user.id,
-                                  image: fixture_file_upload('spec/fixtures/articl.png', 'image/png')) }
+  let(:article) do
+    Article.create!(text: 'First Article', title: 'sample test article', author_id: user.id,
+                    image: fixture_file_upload('spec/fixtures/articl.png', 'image/png'))
+  end
   let!(:article_params) do
-    article_params = { text: 'Second Article',
-                       title: 'another test article',
+    article_params = { text: 'Third Article',
+                       title: 'another trial article',
                        image: fixture_file_upload('spec/fixtures/articl.png', 'image/png') }
   end
 
@@ -52,7 +54,7 @@ RSpec.describe ArticlesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    it 'deletes an Article' do 
+    it 'deletes an Article' do
       post :create, params: { article: article_params }
       expect { delete :destroy, params: { id: 1 } }.to change(Article, :count).by(-1)
     end
