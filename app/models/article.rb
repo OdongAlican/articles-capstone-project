@@ -14,6 +14,6 @@ class Article < ApplicationRecord
   scope :most_famous, -> { order('votes_count DESC').first }
 
   def category_list
-    result = Category.all
+    result = Category.includes(:user).limit(10)
   end
 end
