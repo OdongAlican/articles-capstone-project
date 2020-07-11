@@ -12,7 +12,7 @@ This project development was achieved using the following technologies:
 
 ## Live Demo
 
-[Live Demo Link](https://ancient-temple-19036.herokuapp.com/)
+[Live Demo Link](https://morning-lowlands-12816.herokuapp.com/)
 
 ## Home Page of the Application
 ![screenshot](docs/Home_page.png)
@@ -34,6 +34,7 @@ To get a local copy up and running follow these simple example steps.
 - `cd` into the project directory
 - Run `bundle install` to install the Gemfiles
 - Run `db:migrate` to install the Gemfiles
+- Run `rails db:seed`to add Sample Category data to database
 - From the root directory, run `rails server` to start the Project on `localhost:3000`
 
 ## Usage section
