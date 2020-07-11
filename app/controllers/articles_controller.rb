@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_author
-    if current_user != @article.author
+    if current_user != @article.author and !current_user.admin?
       respond_to do |format|
         format.html { redirect_to articles_url, notice: 'You can only edit your own Article!!' }
       end

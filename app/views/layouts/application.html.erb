@@ -57,6 +57,11 @@
               </li>
             <% else %>
               <li class="nav-item">
+                <a class="nav-link ">
+                  Your Profile <%= "Admin" if current_user.admin? %> 
+                </a>
+              </li>
+              <li class="nav-item">
                 <a>
                   <%= link_to "LOGOUT", logout_path, method: :delete, class: "nav-link "%> 
                 </a>
