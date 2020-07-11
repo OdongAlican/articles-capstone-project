@@ -16,12 +16,20 @@ RSpec.describe Category, type: :model do
   describe 'orders articles order' do
     it 'orders articles in decending order' do
       user = User.create!(name: 'pamla', email: 'pamla@example.com')
-      article2 = Article.create!(title: 'Newbashasnjas', text: 'ashshnasnjads@example.com', author_id: user.id)
-      article1 = Article.create!(title: 'dnaknkaakj', text: 'jsjhbasbhahs@example.com', author_id: user.id)
+      article2 = Article.create!(title: 'Newbashasnjas', text: 'ashshnasnjads@example.com', author_id: user.id,
+                                 image: fixture_file_upload('spec/fixtures/articl.png', 'image/png'))
+      article1 = Article.create!(title: 'dnaknkaakj', text: 'jsjhbasbhahs@example.com', author_id: user.id,
+                                 image: fixture_file_upload('spec/fixtures/articl.png', 'image/png'))
       category = Category.create!(name: 'Test', priority: 3, user_id: user.id)
       ArticleCategory.create!(article: article1, category: category)
       ArticleCategory.create!(article: article2, category: category)
       expect(category.latest_article).not_to eql([article2, article1])
+    end
+  end
+  describe '#Category order' do
+    it 'returns first 100 most recent categories' do
+      expect(Category.most_important.count).to_not eql(101)
+      expect(Category.most_important.count).to eql(0)
     end
   end
 end

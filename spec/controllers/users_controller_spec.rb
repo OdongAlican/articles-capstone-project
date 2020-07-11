@@ -15,13 +15,6 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe 'GET #show' do
-    it 'creates a user and displays users page' do
-      get :show, params: { id: user.to_param }
-      expect(response).to be_successful
-    end
-  end
-
   describe 'POST #create' do
     it 'creates a user ' do
       post :create, params: { user: user_params }

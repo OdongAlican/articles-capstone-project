@@ -1,9 +1,11 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
+  before_action :require_user, only: %i[new edit update destroy show index]
+  before_action :require_same_user, only: %i[edit update destroy]
 
   def index
-    @categories = Category.all.order('priority ASC')
-    @famous_article ||= Article.order('votes_count DESC').first
+    @categories = Category.most_important
+    @famous_article = Article.most_famous
     @articles = Article.any?
   end
 
@@ -57,5 +59,13 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :priority)
+  end
+
+  def require_same_user
+    if current_user != @category.user
+      respond_to do |format|
+        format.html { redirect_to categories_url, notice: 'You can only edit your own categories' }
+      end
+    end
   end
 end
