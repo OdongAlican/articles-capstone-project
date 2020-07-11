@@ -1,0 +1,14 @@
+<center class="col-md-4 mx-auto">
+  <%= form_with(model: user, local: true) do |form| %>
+  <%= user_error(@user) %>
+    <div class="field mt-3">
+      <%= form.text_field :name, id: :name_content , placeholder: 'Enter your user name...' , class: "form-control"%>
+    </div>
+    <div class="field mt-3">
+      <%= form.text_field :email, id: :email_content , placeholder: 'Enter Your Email address....' , class: "form-control"%>
+    </div>
+    <div class="actions">
+      <%= form.submit "Sign Up", class: "btn btn-primary mt-2 form-control mb-2" %>
+    </div>
+  <% end %>
+</center>

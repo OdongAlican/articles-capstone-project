@@ -1,0 +1,9 @@
+<%= form_with(model: @article, local: true) do |form| %>
+  <%= article_error(@article) %>
+  <p class= "text-secondary"> Categories <p>
+  <div class="d-flex">
+      <% @article.categories.each do |cat| %>
+          <div class="border-div"> <%= cat.name %> </div>
+      <% end %>
+  </div>
+<% end %>

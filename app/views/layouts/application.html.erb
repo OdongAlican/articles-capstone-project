@@ -7,9 +7,95 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://kit.fontawesome.com/668d372fa7.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="general">
+    <div class="inner-section">
+      <nav class="navbar navbar-expand-lg d-flex flex-row">
+        <div class ="float-left d-flex col-md-3">
+          <h2 class="d-flex"> soFTeARth </h2>
+          <div class="dummy-red"></div>
+        </div>
+        <div class="col-md-6 justify-content-center d-flex middle-division">
+          <div class ="float-left">
+            <a class = "active">
+              <%= link_to "HOME", categories_path, class: "navbar-brand" %>
+            </a>
+          </div>
+          <div class ="float-left">
+            <a class = "active">
+              <%= link_to "ARTICLES", articles_path, class: "navbar-brand" %>
+            </a>
+          </div>
+          <div class ="float-left">
+            <a class = "active">
+              <%= link_to "CATEGORIES", categories_path, class: "navbar-brand" %>
+            </a>
+          </div>
+        </div>
+        <div class="collapse navbar-collapse d-flex justify-content-end col-md-3 authenticate" >
+          <ul class="navbar-nav">
+            <% if !logged_in? %>
+              <li class="nav-item login">
+                  <a>
+                    <p><%= link_to "LOGIN", login_path, class: "nav-link "%></p> 
+                  </a>
+              </li>
+              <li class="nav-item ">
+                  <a>
+                    <%= link_to "REGISTER", new_user_path,  class: "nav-link"%> 
+                  </a>
+              </li>
+              <li class="nav-item search">
+                <a>
+                  <i class="fas fa-search"></i>   
+                </a>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <a>
+                  <%= link_to "LOGOUT", logout_path, method: :delete, class: "nav-link "%> 
+                </a>
+              </li>
+            <% end %>    
+          </ul>
+        </div>
+      </nav>
+      <div class="lower-nav w-100">
+        <div class="inner-lower-nav bg-danger w-25 h-100"></div>
+      </div> 
+      <div class="top-section">
+        <%= yield %>
+      </div> 
+     </div> 
+     <footer class="d-flex w-100">
+        <div class="d-flex col-md-2">
+          <h4 class="d-flex mt-1 mr-1 text-white"> soFTeARth </h4>
+          <div class="dummy-pink"></div>
+        </div> 
+        <div class="col-md-8 d-flex pt-3 d-flex justify-content-center">
+          <div class="col-md-6 conditions d-flex justify-content-end">
+            <p>Privacy Policy Terms & Conditions</p> 
+          </div>
+          <div class="col-md-6 text-white d-flex justify-content-start">
+            <p>Copyright 2014. All rights reserved.</p> 
+          </div>
+        </div> 
+        <div class="col-md-2 pt-3 d-flex px-0">
+          <div class="col-md-7 conditions px-0">
+            <p> Contact Us:</p> 
+          </div>
+          <div class="col-md-5 text-white d-flex justify-content-start d-flex px-0">
+            <i class="fab fa-twitter-square main-heading fa-lg mr-1"></i>
+            <i class="fab fa-instagram-square main-heading fa-lg mr-1"></i>
+            <i class="fab fa-facebook-square main-heading fa-lg"></i>
+          </div>
+        </div>
+     </footer>
+    </div>
   </body>
 </html>

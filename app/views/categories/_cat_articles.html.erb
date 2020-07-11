@@ -1,0 +1,16 @@
+<div class="col-md-3 px-0">
+    <%= link_to category_path(category) do %>
+        <div class=" background-image col-md-12 position-relative d-flex category-file" style="background-image: url('<%= rails_blob_url(category.articles.last.image ) %>'); height: 188px; background-position: center;">
+            <div class="text-white title title-name">
+                <p class="mt-2">
+                    <%= category.name %>
+                </p>
+            </div>
+            <div class="position-absolute text-white title">
+                <span>
+                    <%= category.articles.last.title %>
+                </span>
+            </div>
+        </div>
+    <% end %>
+</div>

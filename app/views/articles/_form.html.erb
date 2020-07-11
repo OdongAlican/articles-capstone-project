@@ -1,0 +1,23 @@
+<%= form_with(model: @article, local: true) do |form| %>
+  <%= article_error(@article) %>
+  <div class="field">
+    <%= form.label :title, class: "text-secondary font-weight-bold" %>
+    <%= form.text_field :title, class: "form-control col-md-3", placeholder: "Enter Article Name" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text, class: "text-secondary font-weight-bold"  %>
+    <%= form.text_area :text, class: "form-control col-md-3", placeholder: "Write your Article Here!!!" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image, class: "text-secondary font-weight-bold"  %>
+    <%= form.file_field :image, class: "form-control col-md-3 btn-secondary" %>
+  </div>
+  <div>
+    <%= cat_in_articles(form) %>
+  </div>
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary mt-2"%>
+  </div>
+<% end %>

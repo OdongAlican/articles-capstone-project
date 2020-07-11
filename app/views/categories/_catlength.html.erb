@@ -1,0 +1,32 @@
+<div class="col-md-12 d-flex row pr-0 pt-0">
+  <% @category.latest_article.each do |article| %>
+    <div class="d-flex col-md-6 px-0 pt-0">
+      <div class="col-md-6 central-image" style="background-image: url('<%= rails_blob_url(article.image )%>'); height: 288px;">
+      </div>
+      <div class="col-md-6 pt-2 border">
+        <div class="special-category" >
+          <p>
+            <%= @category.name %>
+          </p>
+        </div>
+        <div>
+          <p class="text-dark mt-2">
+            <strong class="text-dark">
+              <%= article.title %>
+            </strong>  
+          </p>
+        </div>
+        <div>
+          <p class="text-secondary">
+            <%= article.text[1..200] %>...
+          </p>
+        </div>
+        <div>
+          <p class="conditions">
+            <%= link_to "Read More", article_path(article)%>
+          </p>
+        </div>  
+      </div>
+    </div>
+  <% end %>
+</div>
