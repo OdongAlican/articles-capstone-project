@@ -44,10 +44,15 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
-    respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
-      format.json { head :no_content }
+    if @category.destroy
+      respond_to do |format|
+        format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to categories_url, notice: "error: #{@category.errors.full_messages}" }
+      end
     end
   end
 
@@ -62,7 +67,7 @@ class CategoriesController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @category.user
+    if current_user != @category.user and !current_user.admin?
       respond_to do |format|
         format.html { redirect_to categories_url, notice: 'You can only edit your own categories' }
       end
