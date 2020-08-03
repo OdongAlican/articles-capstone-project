@@ -59,6 +59,22 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
+    aws-eventstream (1.1.0)
+    aws-partitions (1.349.0)
+    aws-sdk-core (3.104.3)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.36.0)
+      aws-sdk-core (~> 3, >= 3.99.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.75.0)
+      aws-sdk-core (~> 3, >= 3.104.1)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.2.1)
+      aws-eventstream (~> 1, >= 1.0.2)
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
@@ -93,6 +109,7 @@ GEM
     jaro_winkler (1.5.4)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    jmespath (1.4.0)
     launchy (2.5.0)
       addressable (~> 2.7)
     listen (3.2.1)
@@ -251,6 +268,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-s3
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
