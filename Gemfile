@@ -11,8 +11,9 @@ gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
 gem 'mocha', '~> 1.11', '>= 1.11.2'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
+gem 'aws-sdk-s3', require: false
+gem 'cloudinary'
 gem 'sass-rails', '>= 6'
-gem "aws-sdk-s3", require: false
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
