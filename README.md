@@ -12,7 +12,7 @@ This project development was achieved using the following technologies:
 
 ## Live Demo
 
-[Live Demo Link](https://guarded-refuge-63992.herokuapp.com/)
+[Live Demo Link](https://infinite-bastion-80235.herokuapp.com/)
 
 ## Home Page of the Application
 ![screenshot](docs/Home_page.png)

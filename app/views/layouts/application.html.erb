@@ -22,19 +22,25 @@
         </div>
         <div class="col-md-6 justify-content-center d-flex middle-division">
           <div class ="float-left">
-            <a class = "active">
-              <%= link_to "HOME", categories_path, class: "navbar-brand" %>
-            </a>
+            <% if logged_in? %>
+              <a class = "active">
+                <%= link_to "HOME", categories_path, class: "navbar-brand" %>
+              </a>
+            <% end %>
           </div>
           <div class ="float-left">
-            <a class = "active">
-              <%= link_to "ARTICLES", articles_path, class: "navbar-brand" %>
-            </a>
+            <% if logged_in? %>
+              <a class = "active">
+                <%= link_to "ARTICLES", articles_path, class: "navbar-brand" %>
+              </a>
+            <% end %>
           </div>
           <div class ="float-left">
-            <a class = "active">
-              <%= link_to "CATEGORIES", categories_path, class: "navbar-brand" %>
-            </a>
+            <% if logged_in? %>
+              <a class = "active">
+                <%= link_to "CATEGORIES", categories_path, class: "navbar-brand" %>
+              </a>
+            <% end %>
           </div>
         </div>
         <div class="collapse navbar-collapse d-flex justify-content-end col-md-3 authenticate" >
@@ -52,7 +58,7 @@
               </li>
               <li class="nav-item search">
                 <a>
-                  <i class="fas fa-search"></i>   
+                  <i class="fas fa-user"></i>
                 </a>
               </li>
             <% else %>
