@@ -54,7 +54,7 @@ The tests for the model and controllers was implemented using RSpec gem. To exec
 
 - Github: [@OdongAlican](https://github.com/OdongAlican)
 - Twitter: [@odongsandie](https://twitter.com/odongsandie)
-- Linkedin: [Sunday Alican odong](https://www.linkedin.com/in/sunday-alican-odong-b99226b7)
+- Linkedin: [Sunday Alican odong](https://www.linkedin.com/in/sunday-alican-odong/)
 
 
 ## 🤝 Contributing
